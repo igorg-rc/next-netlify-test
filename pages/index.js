@@ -3,6 +3,7 @@ import {useTranslation} from "next-i18next"
 import axios from 'axios'
 import { useRouter } from 'next/dist/client/router'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const API_LINK = "http://193.46.199.82:5000"
 
@@ -41,7 +42,7 @@ export default function Home(props) {
         <ul style={{ listStyleType: 'none' }}>
           {router.locales.map(locale => (
             <li key={locale}>
-              <a href={locale}>{locale}</a>
+              <Link href={locale}>{locale}</Link>
             </li>
           ))}
         </ul>
