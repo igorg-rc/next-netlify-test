@@ -2,6 +2,9 @@ const {i18n} = require('./next-i18next.config')
 
 module.exports = {
   i18n,
+  images: {
+    domains: ["images.unsplash.com", "193.46.199.82"]
+  },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   webpack(config) {
     config.module.rules.push({
