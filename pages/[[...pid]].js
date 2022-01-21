@@ -12,16 +12,16 @@ export default function Home(props) {
   const router = useRouter()
   const { t } = useTranslation("common");
 
-  // console.log(contacts)
-  
   return <div className="container">
     <main>
       <h1>{t("test")}</h1>
       <div className="description">
         {contacts ? contacts.map(contact => (
           <div key={contact._id}>
-            <h3 style={{ color: 'black' }}>{router.locale == "uk" ? contact.title_ua : contact.title_en}</h3>
-            {/* <Image src={`${API_LINK}/${contact.imgUrl}`} /> */}
+            <h3 
+              style={{ color: 'black' }}>
+              {router.locale == "uk" ? contact.title_ua : contact.title_en}
+            </h3>
           </div>
         )) : null}
       </div>
