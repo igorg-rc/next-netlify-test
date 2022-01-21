@@ -1,8 +1,6 @@
-import Head from 'next/head'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {useTranslation} from "next-i18next"
 import axios from 'axios'
-import Image from 'next'
 import { useRouter } from 'next/dist/client/router'
 
 const API_LINK = "http://193.46.199.82:5000"
