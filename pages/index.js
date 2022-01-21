@@ -12,6 +12,8 @@ export default function Home(props) {
   const router = useRouter()
   const { t } = useTranslation("common");
 
+  console.log(router.asPath)
+
   return <div className="container">
     <main>
       <h1>{t("test")}</h1>
@@ -40,9 +42,12 @@ export default function Home(props) {
       </div>
       <div style={{ paddingTop: 30 }}>
         <ul style={{ listStyleType: 'none' }}>
-          {router.locales.map(locale => (
-            <li key={locale}>
-              <Link href={locale}>{locale}</Link>
+          {router.locales.map(item => (
+            <li key={item}>
+              <Link 
+                href={item == "uk" ? router.asPath : `/en${router.asPath}`}
+                locale={item}
+              >{item}</Link>
             </li>
           ))}
         </ul>
