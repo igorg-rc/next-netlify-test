@@ -32,10 +32,11 @@ export default function Home(props) {
               height="17px"
               width="17px"  
             />
-              <span 
+              <Link 
+                href={`${contact._id}`}
                 style={{ fontSize: 16, fontWeight: 600, marginLeft: 5 }}>
                 {router.locale == "uk" ? contact.title_ua : contact.title_en}
-              </span>
+              </Link>
             </span>
           </div>
         )) : null}
@@ -62,6 +63,7 @@ export const getServerSideProps = async ({locale}) => {
   const contactsData = await axios.get(CONTACTS_URL)
   const contacts = contactsData.data.data
 
+  
   return { 
     props: { 
       contacts, 
