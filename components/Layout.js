@@ -6,26 +6,24 @@ import useSWR from "swr"
 
 export const Layout = ({children}) => {
   const router = useRouter()
-  const fetcher = url => axios.get(url).then(res => res.data.data)
-  const API_LINK = "http://193.46.199.82:5000/api/contacts"
+  const fetcher = url => axios.get(url).then(res => res.data)
+  const API_LINK = "https://rickandmortyapi.com/api/character"
   const {data: items, error: itemsError} = useSWR(API_LINK, fetcher)
 
   if (!items) return <h1>{router.locale === "uk" ? "Помилка завантаження" : "Loading error"}</h1>
 
+  // console.log(items)
+
 
   return <div className="text-center">
     <h1>{router.locale === "uk" ? "Хедер" : "Header"}</h1>
-    {items.map((item, index) => (
-      <div key={item._id}>
-        {/* <Image 
-          src={`http://193.46.199.82:5000/${item.imgUrl}`}
-          height={10}
-          width={10}
-        /> */}
-        <Link href={item.link}>
-          {router.locale === "uk" ? item.title_ua : item.title_en}
-        </Link>
-      </div>
+    {items.results.slice(0,5).map(item => (
+      <span style={{ marginRight: 30 }} key={item._id}>
+        <img 
+          src={item.image}
+          alt={item.name}
+        />
+      </span>
     ))}
     {children}
   </div>
