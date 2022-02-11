@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/dist/client/router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useInfiniteQuery } from "react-query"
+import Link from "next/link";
 
 export default function scroll() {
   const router = useRouter()
@@ -25,6 +26,9 @@ export default function scroll() {
 
   return <div>
     <h1 className="text-center">{router.locale === "uk" ? "Безкінечний скрол" : "Infinite scroll"}</h1>
+    <Link href="/">
+      {router.locale === "uk" ? "Назадж на головну" : "Back to main"}
+    </Link>
     <main>
       <InfiniteScroll 
         dataLength={data?.pages.length * 20}
