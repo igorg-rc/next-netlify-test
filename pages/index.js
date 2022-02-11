@@ -22,7 +22,7 @@ export default function Home(props) {
           src="https://images.unsplash.com/photo-1642730496092-2f5942cd881d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" 
           width="200px"
           height="100px"
-          />
+        />
         {contacts ? contacts.map(contact => (
           <div key={contact._id}>
             <span 
@@ -53,6 +53,7 @@ export default function Home(props) {
           ))}
         </ul>
       </div>
+    <Link href="/infinite-scroll">{router.locale === "uk" ? "Сторінка зі скролом" : "Page with scroll"}</Link>
     </main>
   </div>
 }
