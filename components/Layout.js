@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useRouter } from "next/dist/client/router"
 import Link from "next/link"
-import Image from "next/dist/client/image"
+// import Image from "next/dist/client/image"
 import useSWR from "swr"
 
 export const Layout = ({children}) => {
@@ -17,11 +17,11 @@ export const Layout = ({children}) => {
     <h1>{router.locale === "uk" ? "Хедер" : "Header"}</h1>
     {items.map((item, index) => (
       <div key={item._id}>
-        <Image 
+        {/* <Image 
           src={`http://193.46.199.82:5000/${item.imgUrl}`}
           height={10}
           width={10}
-        />
+        /> */}
         <Link href={item.link}>
           {router.locale === "uk" ? item.title_ua : item.title_en}
         </Link>
